@@ -1,20 +1,33 @@
-var five = require("johnny-five"),
-    onButton, offButton, led;
+const five = require("johnny-five");
+const InterSocket = require('./intersocket');
 
 five.Board().on("ready", function() {
 
-  onButton = new five.Button(2);
 
-  offButton = new five.Button(3);
+  const button = new five.Button({
+    pin: 7,
+    invert: true
+  });
+  const led = new five.Led(13);
 
-  led = new five.Led(13);
+  // led.blink();
+  //
+  // setTimeout(() => {
+  //   led.stop();
+  // }, 5000)
 
-  onButton.on("down", function(value){
-    led.on();
+
+
+
+  button.on("down", function(){
+    console.log('button down');
+    led.toggle();
   });
 
-  offButton.on("down", function(){
-    led.off();
-  });
+  button.on("up", function(){
+    console.log('button up');
+    led.toggle();
+  })
+
 
 });
