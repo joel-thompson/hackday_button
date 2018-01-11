@@ -2,11 +2,13 @@ const io = require('socket.io').listen(5001);
 
 const InterSocket = {
   setup() {
-    io.on('connection', function(socket) {});
+    io.on('connection', function(socket) {
+      console.log('connection established')
+    });
   },
 
-  emitButtonPush() {
-    io.sockets.emit('button-pushed');
+  emitRegister() {
+    io.sockets.emit('register');
   }
 
 };
