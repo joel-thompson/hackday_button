@@ -19,6 +19,7 @@
   "homepage": "https://github.com/joel-thompson/hackday_button#readme",
   "dependencies": {
     "johnny-five": "^0.13.0",
+    "morse-node": "^0.1.1",
     "socket.io": "^2.0.4"
   }
 }

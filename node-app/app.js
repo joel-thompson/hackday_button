@@ -10,14 +10,6 @@ five.Board().on("ready", function() {
   });
   const led = new five.Led(13);
 
-  // led.blink();
-  //
-  // setTimeout(() => {
-  //   led.stop();
-  // }, 5000)
-
-
-
 
   button.on("down", function(){
     console.log('button down');
@@ -27,7 +19,6 @@ five.Board().on("ready", function() {
   button.on("up", function(){
     console.log('button up');
     led.toggle();
-  })
-
+  };
 
 });
