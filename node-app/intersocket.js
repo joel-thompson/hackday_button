@@ -28,7 +28,7 @@ const InterSocket = {
   },
 
   emitMorseCodeEnter(string) {
-    io.sockets.emit('morseCodeEnter', string);
+    io.sockets.emit('morseCodeEnter', { character: string });
   },
 };
 
