@@ -17,6 +17,7 @@ const init = (pinId) => {
   };
 
   const logCharacter = () => {
+    InterSocket.emitMorseCodeEnter(morse.decode(state.characters));
     console.log(morse.decode(state.characters));
     state.characters = '';
   };
