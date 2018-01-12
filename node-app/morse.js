@@ -2,9 +2,9 @@ const five = require("johnny-five");
 const InterSocket = require('./intersocket');
 const morse = require('morse-node').create("ITU");
 
-five.Board().on("ready", function() {
+const init = (pinId) => {
   const button = new five.Button({
-    pin: 7,
+    pin: pinId,
     invert: true,
     holdtime: 100,
   });
@@ -22,7 +22,7 @@ five.Board().on("ready", function() {
   };
 
   const enableTimeout = () => {
-    state.timeout = setTimeout(logCharacter, 1000)
+    state.timeout = setTimeout(logCharacter, 500)
   };
 
   button.on("hold", function(){
@@ -37,7 +37,7 @@ five.Board().on("ready", function() {
 
   button.on("up", function(){
     console.log(state.holdLength);
-    if (state.holdLength > 300) {
+    if (state.holdLength > 200) {
       state.characters += '-';
     } else {
       state.characters += '.'
@@ -46,5 +46,6 @@ five.Board().on("ready", function() {
     enableTimeout();
     led.toggle();
   });
+};
 
-});
+module.exports = { init };
