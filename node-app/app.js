@@ -9,14 +9,14 @@ InterSocket.emitMorseCodeEnter("foo");
 five.Board().on("ready", function() {
 
   const PINS = {
-    MASTER: 5,
-    YELLOW: 2,
-    GREEN: 3,
-    RED: 4,
-    // BLUE: 5,
-    // SWITCH: 6,
-    // LED: 7,
-  };
+     MASTER: 3,
+     YELLOW: 5,
+     GREEN: 4,
+     RED: 6,
+     BLUE: 7,
+     SWITCH: 2,
+     LED: 13,
+   };
 
   const initButton = (pin) => {
     console.log(pin);

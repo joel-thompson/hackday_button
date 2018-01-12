@@ -17,8 +17,11 @@ const init = (pinId) => {
   };
 
   const logCharacter = () => {
-    InterSocket.emitMorseCodeEnter(morse.decode(state.characters));
-    console.log(morse.decode(state.characters));
+    let char = state.characters;
+    if (char !== ' ') {
+      char = morse.decode(state.characters)
+    }
+    InterSocket.emitMorseCodeEnter(char);
     state.characters = '';
   };
 
@@ -38,7 +41,9 @@ const init = (pinId) => {
 
   button.on("up", function(){
     console.log(state.holdLength);
-    if (state.holdLength > 200) {
+    if (state.holdLength > 600) {
+      state.characters += ' ';
+    } else if (state.holdLength > 200) {
       state.characters += '-';
     } else {
       state.characters += '.'
