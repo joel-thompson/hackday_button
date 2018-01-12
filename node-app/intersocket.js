@@ -23,8 +23,8 @@ const InterSocket = {
     io.sockets.emit('adminToolOpen');
   },
 
-  emitToggleHandler() {
-    io.sockets.emit('toggle');
+  emitEmojiSelect() {
+    io.sockets.emit('emojiSelect');
   },
 
   emitMorseCodeEnter(string) {
