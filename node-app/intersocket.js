@@ -11,12 +11,24 @@ const InterSocket = {
     io.sockets.emit('register');
   },
 
-  emitButtonPush() {
-    io.sockets.emit('button-pushed');
+  emitSendMessage() {
+      io.sockets.emit('sendMessage');
   },
 
-  emitMorseInput(string) {
-    io.sockets.emit('morse-input', string);
+  emitCloseConversation() {
+    io.sockets.emit('closeConversation');
+  },
+
+  emitAdminToolOpen() {
+    io.sockets.emit('adminToolOpen');
+  },
+
+  emitToggleHandler() {
+    io.sockets.emit('toggle');
+  },
+
+  emitMorseCodeEnter(string) {
+    io.sockets.emit('morseCodeEnter', string);
   },
 };
 
